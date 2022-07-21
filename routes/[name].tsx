@@ -6,12 +6,19 @@ import Banner from "@/components/Banner.tsx";
 
 export const handler: Handlers = {
   GET(req, ctx) {
-    const url = new URL(req.url).searchParams.get("url");
-    const emoji = new URL(req.url).searchParams.get("emoji");
+    const { searchParams } = new URL(req.url);
+    const url = searchParams.get("url");
+    const description = searchParams.get("description");
+    const emoji = searchParams.get("emoji");
 
     return new Response(
       renderToString(
-        <Banner name={ctx.params.name} url={url} />,
+        <Banner
+          name={ctx.params.name}
+          url={url}
+          description={description}
+          emoji={emoji}
+        />,
       ),
       {
         headers: {
