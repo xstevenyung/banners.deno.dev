@@ -10,6 +10,7 @@ export default function ({ name }: Props) {
       height="250"
       fill="none"
       viewBox="-15 0 70 70"
+      style={{ backgroundColor: "#000" }}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
@@ -35,11 +36,11 @@ export default function ({ name }: Props) {
         y="50px"
         dominant-baseline="middle"
         text-anchor="middle"
-        fill="#000"
+        fill="#fff"
         style={{
           fontSize: "8px",
           fontFamily: "JetBrains Mono",
-          fontWeight: "300",
+          fontWeight: "700",
         }}
       >
         {name}
