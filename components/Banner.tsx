@@ -17,6 +17,11 @@ export default function ({ name, description, url, emoji }: Props) {
       viewBox="-15 0 70 80"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <style>
+        @import
+        url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;500;700&display=swap');
+      </style>
+
       <path
         d="M34.092 8.845C38.929 20.652 34.092 27 30 30.5c1 3.5-2.986 4.222-4.5 2.5-4.457 1.537-13.512 1.487-20-5C2 24.5 4.73 16.714 14 11.5c8-4.5 16-7 20.092-2.655Z"
         fill="#FFDB1E"
