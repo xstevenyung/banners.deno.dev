@@ -1,0 +1,41 @@
+name: Deploy
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: [ubuntu-latest]
+
+    permissions:
+      id-token: write # This is required to allow the GitHub Action to authenticate with Deno Deploy.
+      contents: read
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - run: npm install
+
+      - run: npm run tailwind
+
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - name: Deploy to Deno Deploy
+        uses: denoland/deployctl@v1
+        with:
+          project: dicons # the name of the project on Deno Deploy
+          entrypoint: main.ts # the entrypoint to deploy
+          import-map: import_map.json
+
+      - name: Purge Cloudflare cache
+        uses: jakejarvis/cloudflare-purge-action@v0.3.0
+        env:
+          # Zone is required by both authentication methods
+          CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
+
+          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}

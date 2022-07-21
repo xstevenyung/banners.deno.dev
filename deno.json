@@ -1,0 +1,7 @@
+{
+  "tasks": {
+    "start": "deno run -A --watch=static/,routes/ dev.ts",
+    "dev:tailwind": "npx tailwindcss --input styles/main.css --output static/styles/main.css --watch"
+  },
+  "importMap": "./import_map.json"
+}
