@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "tailwind": "tailwindcss -i ./styles/main.css -o ./static/styles/main.css -m"
+  },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.2"
   }
