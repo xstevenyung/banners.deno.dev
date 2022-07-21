@@ -10,7 +10,6 @@ export default function ({ name }: Props) {
       height="250"
       fill="none"
       viewBox="-15 0 70 70"
-      style={{ backgroundColor: "#000" }}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
