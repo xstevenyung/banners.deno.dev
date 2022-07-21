@@ -31,11 +31,3 @@ jobs:
           project: dicons # the name of the project on Deno Deploy
           entrypoint: main.ts # the entrypoint to deploy
           import-map: import_map.json
-
-      - name: Purge Cloudflare cache
-        uses: jakejarvis/cloudflare-purge-action@v0.3.0
-        env:
-          # Zone is required by both authentication methods
-          CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
-
-          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
