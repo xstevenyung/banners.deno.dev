@@ -7,6 +7,7 @@ import Banner from "@/components/Banner.tsx";
 export const handler: Handlers = {
   GET(req, ctx) {
     const url = new URL(req.url).searchParams.get("url");
+    const emoji = new URL(req.url).searchParams.get("emoji");
 
     return new Response(
       renderToString(

@@ -1,9 +1,13 @@
 /** @jsx h */
 import { h } from "preact";
 
-export type Props = { name: string; url?: string | null };
+export type Props = {
+  name: string;
+  url?: string | null;
+  emoji?: string | null;
+};
 
-export default function ({ name, url }: Props) {
+export default function ({ name, url, emoji }: Props) {
   return (
     <svg
       width="800"
@@ -30,18 +34,18 @@ export default function ({ name, url }: Props) {
         fill="#fff"
       />
 
-      {
-        /* <text
-        x="45%"
-        y="30px"
-        dominant-baseline="middle"
-        text-anchor="middle"
-        fill="#fff"
-        style={{ fontSize: "15px" }}
-      >
-        🚄
-      </text> */
-      }
+      {!!emoji && (
+        <text
+          x="45%"
+          y="30px"
+          dominant-baseline="middle"
+          text-anchor="middle"
+          fill="#fff"
+          style={{ fontSize: "15px" }}
+        >
+          {emoji}
+        </text>
+      )}
 
       <text
         x="30%"
@@ -58,7 +62,7 @@ export default function ({ name, url }: Props) {
         {name}
       </text>
 
-      {url && (
+      {!!url && (
         <text
           x="30%"
           y="60px"
