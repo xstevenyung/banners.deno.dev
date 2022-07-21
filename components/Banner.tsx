@@ -3,17 +3,18 @@ import { h } from "preact";
 
 export type Props = {
   name: string;
+  description?: string | null;
   url?: string | null;
   emoji?: string | null;
 };
 
-export default function ({ name, url, emoji }: Props) {
+export default function ({ name, description, url, emoji }: Props) {
   return (
     <svg
       width="800"
-      height="250"
+      height="300"
       fill="none"
-      viewBox="-15 0 70 70"
+      viewBox="-15 0 70 80"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
@@ -62,7 +63,7 @@ export default function ({ name, url, emoji }: Props) {
         {name}
       </text>
 
-      {!!url && (
+      {!!description && (
         <text
           x="30%"
           y="60px"
@@ -72,7 +73,24 @@ export default function ({ name, url, emoji }: Props) {
           style={{
             fontSize: "5px",
             fontFamily: "JetBrains Mono",
-            fontWeight: "300",
+            fontWeight: "500",
+          }}
+        >
+          {description}
+        </text>
+      )}
+
+      {!!url && (
+        <text
+          x="30%"
+          y="72px"
+          dominant-baseline="middle"
+          text-anchor="middle"
+          fill="#10b981"
+          style={{
+            fontSize: "5px",
+            fontFamily: "JetBrains Mono",
+            fontWeight: "200",
           }}
         >
           {url}

@@ -6,6 +6,7 @@ import Banner from "@/components/Banner.tsx";
 export default function () {
   const [formData, setFormData] = useState({
     name: "Fresh",
+    description: "The next-gen web framework.",
     url: "https://fresh.deno.dev",
     emoji: "",
   });
@@ -34,6 +35,25 @@ export default function () {
                 class="shadow-sm focus:ring-emerald-500 focus:border-emerald-500 block w-full sm:text-sm border-gray-600 rounded-md bg-gray-700"
                 placeholder="Fresh"
                 {...bind("name")}
+              />
+            </div>
+          </div>
+
+          <div>
+            <label
+              for="description"
+              class="block text-sm font-medium text-gray-200"
+            >
+              Description
+            </label>
+            <div class="mt-1">
+              <input
+                type="text"
+                name="description"
+                id="description"
+                class="shadow-sm focus:ring-emerald-500 focus:border-emerald-500 block w-full sm:text-sm border-gray-600 rounded-md bg-gray-700"
+                placeholder="Fresh"
+                {...bind("description")}
               />
             </div>
           </div>
@@ -79,7 +99,7 @@ export default function () {
       </section>
 
       <section class="flex grid-span-2">
-        <div class="border border-gray-600 rounded-lg">
+        <div class="border border-gray-600 rounded-lg flex justify-center items-center">
           <Banner {...formData} />
         </div>
       </section>
