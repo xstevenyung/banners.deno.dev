@@ -28,6 +28,6 @@ jobs:
       - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: dicons # the name of the project on Deno Deploy
+          project: banners # the name of the project on Deno Deploy
           entrypoint: main.ts # the entrypoint to deploy
           import-map: import_map.json

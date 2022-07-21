@@ -1,9 +1,9 @@
 /** @jsx h */
 import { h } from "preact";
 
-export type Props = { name: string };
+export type Props = { name: string; url?: string | null };
 
-export default function ({ name }: Props) {
+export default function ({ name, url }: Props) {
   return (
     <svg
       width="800"
@@ -30,6 +30,19 @@ export default function ({ name }: Props) {
         fill="#fff"
       />
 
+      {
+        /* <text
+        x="45%"
+        y="30px"
+        dominant-baseline="middle"
+        text-anchor="middle"
+        fill="#fff"
+        style={{ fontSize: "15px" }}
+      >
+        🚄
+      </text> */
+      }
+
       <text
         x="30%"
         y="50px"
@@ -44,6 +57,23 @@ export default function ({ name }: Props) {
       >
         {name}
       </text>
+
+      {url && (
+        <text
+          x="30%"
+          y="60px"
+          dominant-baseline="middle"
+          text-anchor="middle"
+          fill="#9ca3af"
+          style={{
+            fontSize: "5px",
+            fontFamily: "JetBrains Mono",
+            fontWeight: "300",
+          }}
+        >
+          {url}
+        </text>
+      )}
     </svg>
   );
 }

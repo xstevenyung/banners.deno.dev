@@ -6,6 +6,7 @@ import Banner from "@/components/Banner.tsx";
 export default function () {
   const [formData, setFormData] = useState({
     name: "Fresh",
+    url: "https://fresh.deno.dev",
   });
 
   const bind = (name: string) => ({
@@ -35,6 +36,26 @@ export default function () {
               />
             </div>
           </div>
+
+          <div>
+            <label
+              for="name"
+              class="block text-sm font-medium text-gray-700"
+            >
+              URL
+            </label>
+            <div class="mt-1">
+              <input
+                type="text"
+                name="url"
+                id="url"
+                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                placeholder="Fresh"
+                {...bind("url")}
+              />
+            </div>
+          </div>
+
           <div>
             <label
               id="listbox-label"
@@ -151,7 +172,7 @@ export default function () {
       </section>
 
       <section class="flex grid-span-2">
-        <div class="border rounded-md">
+        <div class="border rounded-md bg-black">
           <Banner {...formData} />
         </div>
       </section>
